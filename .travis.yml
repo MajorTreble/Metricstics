@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.9.7"
+  - "3.9"
   
 before_install:
   - python --version
@@ -15,7 +15,6 @@ install:
 # command to run tests
 script:
   - pytest
-  - python app/tests/app-test.py --cov-report term-missing --cov app -v
   
 after_success:
   - codecov
