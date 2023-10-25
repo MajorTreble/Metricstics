@@ -1,5 +1,5 @@
 """Module providing a sample tkinter window"""
-from tkinter import *
+from tkinter import Tk
 from tkinter import ttk
 
 root = Tk()
