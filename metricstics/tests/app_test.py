@@ -1,6 +1,6 @@
 import pytest
 
-from src.app import my_function
+from metricstics.src.app import my_function
 
 class TestSimpleClass(object):
 
