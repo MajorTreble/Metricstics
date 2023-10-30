@@ -26,10 +26,8 @@ buttonCSD = Button(root, text="Calculate Standard Deviation", borderless = 1)
 buttonCSD.place(x=450, y=150)
 buttonCMAD = Button(root, text="Calculate Mean Absolute Deviation", borderless = 1)
 buttonCMAD.place(x=450, y=200)
-buttonOR = Button(root, text="Output Results", borderless = 1)
-buttonOR.place(x=450, y=250)
 buttonSR = Button(root, text="Save Results", borderless = 1)
-buttonSR.place(x=270, y=450)
+buttonSR.place(x=450, y=250)
 
 
 output_text = Text(root, width=50, height=10)
