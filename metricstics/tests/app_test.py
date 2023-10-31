@@ -1,5 +1,5 @@
 """Test Module for a sample function"""
-from src.app import my_function
+from metricstics.src.app import my_function
 
 # pylint: disable=R0903
 # Too few public methods (1/2) (too-few-public-methods)
