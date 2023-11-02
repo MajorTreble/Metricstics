@@ -11,11 +11,11 @@ class TestApp:
     
     def test_app(self):
         """Test App"""
-        
+
         if os.environ.get('DISPLAY','') == '':
             print('no display found. Using :0.0')
-            os.environ.__setitem__('DISPLAY', ':0.0')        
-        
+            os.environ.__setitem__('DISPLAY', ':0.0')
+
         app = App()
         assert app.controller is not None
         assert app.view is not None
