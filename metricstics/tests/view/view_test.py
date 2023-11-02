@@ -1,5 +1,5 @@
 """Test Module for view."""
-from metricstics.src.view.view import View
+#from metricstics.src.view.view import View
 
 # pylint: disable=R0903
 # Too few public methods (1/2) (too-few-public-methods)
