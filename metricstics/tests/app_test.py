@@ -4,7 +4,8 @@ from metricstics.src.app import my_function
 # pylint: disable=R0903
 # Too few public methods (1/2) (too-few-public-methods)
 
-class TestSimpleClass():
+
+class TestSimpleClass:
     """Test class"""
 
     def test_my_function(self):
