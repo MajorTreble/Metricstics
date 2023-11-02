@@ -1,69 +1,86 @@
 """The views in an MVC architecture."""
-from tkinter import Tk, Text
-
-# from tkinter.ttk import *
+from tkinter import Text
+from tkinter.ttk import Frame
 from tkmacosx import Button
 
-from metricstics.src.controller.input_controller import InputController
+
+# pylint: disable=R0901
+# Too many ancestors (8/7) (too-many-ancestors)
+# pylint: disable=R0902
+# Too many ancestors (8/7) (too-many-ancestors)
 
 
+class View(Frame):
+    """View displays the buttons and text output."""
 
-root = Tk()
+    def __init__(self, parent):
+        """Initialize."""
+        super().__init__(parent)
 
+        # create widgets
 
-root.title("METRICSTICS")
-root.geometry("720x500")
-root.configure(background="lightblue")
+        # Buttons
+        self.button_rd = Button(self, text="Read Data", borderless=1)
+        # self.buttonRD.place(x=50, y=50)
+        self.button_rd.grid(row=1, column=0)
 
-controller = InputController()
+        self.button_gd = Button(
+            self, text="Generate Data", borderless=1, command=self.generate_data_clicked
+        )
+        self.button_gd.place(x=50, y=100)
 
+        self.button_vmi = Button(self, text="View Minimum", borderless=1)
+        self.button_vmi.place(x=50, y=150)
 
-def generate_data_clicked():
-    """Command for generate data button."""
-    controller.generate_random_data(5)
-    output_text.delete("1.0", "end")
-    output_text.insert("1.0", controller.data)
+        self.button_vmx = Button(self, text="View Maximum", borderless=1)
+        self.button_vmx.place(x=50, y=200)
 
+        self.button_vmo = Button(self, text="View Mode", borderless=1)
+        self.button_vmo.place(x=50, y=250)
 
-def calculate_arithmatic_mean_clicked():
-    """Command for calculate arithmatic mean button."""
-    result = controller.calculate()
-    print(result)
-    output_text.delete("1.0", "end")
-    output_text.insert("1.0", result["ArithmeticMean"])
+        self.button_cm = Button(self, text="Calculate Median", borderless=1)
+        self.button_cm.place(x=450, y=50)
 
+        self.button_cam = Button(
+            self,
+            text="Calculate Arithmatic Mean",
+            borderless=1,
+            command=self.calculate_arithmatic_mean_clicked,
+        )
+        self.button_cam.place(x=450, y=100)
 
-buttonRD = Button(root, text="Read Data", borderless=1)
-buttonRD.place(x=50, y=50)
-buttonGD = Button(
-    root, text="Generate Data", borderless=1, command=generate_data_clicked
-)
-buttonGD.place(x=50, y=100)
-buttonVMI = Button(root, text="View Minimum", borderless=1)
-buttonVMI.place(x=50, y=150)
-buttonVMX = Button(root, text="View Maximum", borderless=1)
-buttonVMX.place(x=50, y=200)
-buttonVMO = Button(root, text="View Mode", borderless=1)
-buttonVMO.place(x=50, y=250)
-buttonCM = Button(root, text="Calculate Median", borderless=1)
-buttonCM.place(x=450, y=50)
-buttonCAM = Button(
-    root,
-    text="Calculate Arithmatic Mean",
-    borderless=1,
-    command=calculate_arithmatic_mean_clicked,
-)
-buttonCAM.place(x=450, y=100)
-buttonCSD = Button(root, text="Calculate Standard Deviation", borderless=1)
-buttonCSD.place(x=450, y=150)
-buttonCMAD = Button(root, text="Calculate Mean Absolute Deviation", borderless=1)
-buttonCMAD.place(x=450, y=200)
-buttonSR = Button(root, text="Save Results", borderless=1)
-buttonSR.place(x=450, y=250)
+        self.button_csd = Button(
+            self, text="Calculate Standard Deviation", borderless=1
+        )
+        self.button_csd.place(x=450, y=150)
 
+        self.button_cmad = Button(
+            self, text="Calculate Mean Absolute Deviation", borderless=1
+        )
+        self.button_cmad.place(x=450, y=200)
 
-output_text = Text(root, width=50, height=10)
-output_text.place(x=150, y=290)
+        self.button_sr = Button(self, text="Save Results", borderless=1)
+        self.button_sr.place(x=450, y=250)
 
+        # Text
+        self.output_text = Text(self, width=50, height=10)
+        self.output_text.place(x=150, y=290)
 
-root.mainloop()
+        # set the controller
+        self.controller = None
+
+    def set_controller(self, controller):
+        """Set the controller"""
+        self.controller = controller
+
+    def generate_data_clicked(self):
+        """Command for generate data button."""
+        self.controller.generate_random_data(5)
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", self.controller.data)
+
+    def calculate_arithmatic_mean_clicked(self):
+        """Command for calculate arithmatic mean button."""
+        result = self.controller.calculate()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["ArithmeticMean"])
