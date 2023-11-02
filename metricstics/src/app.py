@@ -17,6 +17,7 @@ class App(Tk):
 
         # create a view and place it on the root window
         self.view = View(self)
+        self.view.grid(row=0, column=0, padx=10, pady=10)
 
         # create a controller
         self.controller = InputController()
