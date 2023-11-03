@@ -112,3 +112,16 @@ class View(Frame):
         result = self.controller.calculate_standard_deviation()
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", result["StandardDeviation"])
+
+    def calculate_minimum(self):
+        """Command for calculate standard deviation button."""
+        result = self.controller.calculate_minimum()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["Minimum"])
+
+
+    def calculate_minimum(self):
+        """Command for calculate standard deviation button."""
+        result = self.controller.read_data()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["readdata"])

@@ -27,6 +27,28 @@ class InputController:
         """Clear the data set to empty."""
         self.data = set()
 
+    def read_data(self):
+        """Create a list of calculations and perform them.
+
+                Returns:
+                    result(dict): The results of the calculations
+                """
+        result = {}
+        readdata = Calculation()
+        readdata.read_data(self.data,result)
+        return result
+
+    def calculate_minimum(self):
+        """Create a list of calculations and perform them.
+
+                Returns:
+                    result(dict): The results of the calculations
+                """
+        result = {}
+        minimum = Calculation()
+        minimum.calculate_minimum(self.data,result)
+        return result
+
     def calculate_arithmetic_mean(self):
         """Create a list of calculations and perform them.
 

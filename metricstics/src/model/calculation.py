@@ -5,6 +5,28 @@ import math
 class Calculation:
     """Interface for Calculation."""
 
+    def calculate_minimum(self,data,result):
+        """
+                Perform minimum calculation.
+
+                Arg:
+                    data(list): the data to work with
+                    result(dic): store the result
+                """
+        data = [5,41,28,9,1]
+        min = data[0]
+
+        size = len(data)
+        if size == 0:
+            result["Minimum"] = 0
+            return
+
+        for i in data:
+            if i < min:
+                min = data
+
+        result["Minimum"] = min
+    
     def calculate_arithmetic_mean(self, data, result):
         """
         Perform the Arithmetic Mean calculation.
