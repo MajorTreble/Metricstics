@@ -23,7 +23,7 @@ class TestInputController:
 
         assert len(controller.data) == 0
 
-    def test_calculateArithmeticMean(self):
+    def test_calculate_arithmetic_mean(self):
         """Create random data and check it."""
         controller = InputController()
         controller.generate_random_data(5)
@@ -32,7 +32,7 @@ class TestInputController:
         assert len(result) == 1
         assert result["ArithmeticMean"] == 3
 
-    def test_calculateMeanAbsoluteDeviation(self):
+    def test_calculate_mean_absolute_deviation(self):
         """Create random data and check it."""
         controller = InputController()
         controller.generate_random_data(5)
@@ -41,7 +41,7 @@ class TestInputController:
         assert len(result) == 2
         assert result["MeanAbsoluteDeviation"] == 1.4142135623730951
 
-    def test_calculateStandardDeviation(self):
+    def test_calculate_standard_deviation(self):
         """Create random data and check it."""
         controller = InputController()
         controller.generate_random_data(5)
