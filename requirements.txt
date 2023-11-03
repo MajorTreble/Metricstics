@@ -1,3 +1,6 @@
 pytest==7.4.3
 pytest-cov==4.1.0
 tk==0.1.0
+tkmacosx==1.0.5
+black==23.10.1
+pydocstyle==6.3.0
