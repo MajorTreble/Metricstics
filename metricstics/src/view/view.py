@@ -50,22 +50,28 @@ class View(Frame):
             self,
             text="Calculate Arithmatic Mean",
             borderless=1,
-            command=self.calculate_arithmatic_mean_clicked,
+            command=self.calculate_arithmetic_mean_clicked,
         )
         # self.button_cam.place(x=450, y=100)
         self.button_cam.grid(row=2, column=3)
 
-        self.button_csd = Button(
-            self, text="Calculate Standard Deviation", borderless=1
-        )
-        # self.button_csd.place(x=450, y=150)
-        self.button_csd.grid(row=3, column=3)
-
         self.button_cmad = Button(
-            self, text="Calculate Mean Absolute Deviation", borderless=1
+            self,
+            text="Calculate Mean Absolute Deviation",
+            borderless=1,
+            command=self.calculate_mean_absolute_deviation_clicked,
         )
         # self.button_cmad.place(x=450, y=200)
-        self.button_cmad.grid(row=4, column=3)
+        self.button_cmad.grid(row=3, column=3)
+
+        self.button_csd = Button(
+            self,
+            text="Calculate Standard Deviation",
+            borderless=1,
+            command=self.calculate_standard_deviation_clicked,
+        )
+        # self.button_csd.place(x=450, y=150)
+        self.button_csd.grid(row=4, column=3)
 
         self.button_sr = Button(self, text="Save Results", borderless=1)
         # self.button_sr.place(x=450, y=250)
@@ -89,8 +95,20 @@ class View(Frame):
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", self.controller.data)
 
-    def calculate_arithmatic_mean_clicked(self):
+    def calculate_arithmetic_mean_clicked(self):
         """Command for calculate arithmatic mean button."""
-        result = self.controller.calculate()
+        result = self.controller.calculate_arithmetic_mean()
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", result["ArithmeticMean"])
+
+    def calculate_mean_absolute_deviation_clicked(self):
+        """Command for calculate mean absolute deviation button."""
+        result = self.controller.calculate_mean_absolute_deviation()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["MeanAbsoluteDeviation"])
+
+    def calculate_standard_deviation_clicked(self):
+        """Command for calculate standard deviation button."""
+        result = self.controller.calculate_standard_deviation()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["StandardDeviation"])

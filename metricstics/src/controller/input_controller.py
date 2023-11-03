@@ -1,5 +1,5 @@
 """The controllers in an MVC architecture."""
-from metricstics.src.model.calculation import ArithmeticMean
+from metricstics.src.model.calculation import Calculation
 
 
 class InputController:
@@ -27,15 +27,37 @@ class InputController:
         """Clear the data set to empty."""
         self.data = set()
 
-    def calculate(self):
+    def calculate_arithmetic_mean(self):
         """Create a list of calculations and perform them.
 
         Returns:
             result(dict): The results of the calculations
         """
         result = {}
-        mean = ArithmeticMean()
-        mean.calculate(self.data, result)
+        mean = Calculation()
+        mean.calculate_arithmetic_mean(self.data, result)
+        return result
+
+    def calculate_mean_absolute_deviation(self):
+        """Create a list of calculations and perform them.
+
+        Returns:
+            result(dict): The results of the calculations
+        """
+        result = {}
+        mean = Calculation()
+        mean.calculate_mean_absolute_deviation(self.data, result)
+        return result
+
+    def calculate_standard_deviation(self):
+        """Create a list of calculations and perform them.
+
+        Returns:
+            result(dict): The results of the calculations
+        """
+        result = {}
+        mean = Calculation()
+        mean.calculate_standard_deviation(self.data, result)
         return result
 
     def __str__(self):

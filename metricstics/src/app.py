@@ -1,5 +1,11 @@
 """App is the starting point and contains the main loop"""
 from tkinter import Tk
+import os
+import sys
+
+sys.path.append(os.path.abspath("./"))
+
+# pylint: disable=wrong-import-position
 from metricstics.src.controller.input_controller import InputController
 from metricstics.src.view.view import View
 
