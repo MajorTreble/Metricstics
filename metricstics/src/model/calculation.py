@@ -1,5 +1,5 @@
 """Calculations performed on a data set."""
-import math
+import metricstics.src.util.pymath as pymath
 
 
 class Calculation:
@@ -18,7 +18,7 @@ class Calculation:
             result["ArithmeticMean"] = 0
             return
 
-        result["ArithmeticMean"] = sum(data) / size
+        result["ArithmeticMean"] = pymath.sum(data) / size
 
     def calculate_mean_absolute_deviation(self, data, result):
         """
@@ -40,7 +40,7 @@ class Calculation:
         for f in data:
             total += (f - mean) ** 2
 
-        result["MeanAbsoluteDeviation"] = math.sqrt(total / size)
+        result["MeanAbsoluteDeviation"] = pymath.sqrt(total / size)
 
     def calculate_standard_deviation(self, data, result):
         """
