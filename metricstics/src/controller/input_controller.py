@@ -14,7 +14,7 @@ class InputController:
         Attributes:
             data (set): The working data set of numbers
         """
-        self.data = list()
+        self.data = []
 
     def generate_random_data(self, size):
         """
@@ -27,7 +27,7 @@ class InputController:
 
     def clear_data(self):
         """Clear the data set to empty."""
-        self.data = list()
+        self.data = []
 
     def calculate_arithmetic_mean(self):
         """Create a list of calculations and perform them.

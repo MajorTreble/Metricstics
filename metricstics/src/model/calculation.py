@@ -1,6 +1,6 @@
 """Calculations performed on a data set."""
 import math
-from utils import operation
+from metricstics.src.utils.operation import sort
 
 class Calculation:
     """Interface for Calculation."""
@@ -17,7 +17,7 @@ class Calculation:
             result["Median"] = 0
             return
 
-        ordered_list = operation.sort(data)
+        ordered_list = sort(data)
         middle = int(size / 2) - 1
 
         if size % 2 == 0:
