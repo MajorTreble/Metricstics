@@ -1,6 +1,7 @@
 """The controllers in an MVC architecture."""
-from metricstics.src.model.calculation import Calculation
 import random
+from metricstics.src.model.calculation import Calculation
+
 
 
 class InputController:
@@ -13,7 +14,7 @@ class InputController:
         Attributes:
             data (set): The working data set of numbers
         """
-        self.data = set()
+        self.data = list()
 
     def generate_random_data(self, size):
         """
@@ -26,7 +27,7 @@ class InputController:
 
     def clear_data(self):
         """Clear the data set to empty."""
-        self.data = set()
+        self.data = list()
 
     def calculate_arithmetic_mean(self):
         """Create a list of calculations and perform them.
@@ -60,7 +61,7 @@ class InputController:
         mean = Calculation()
         mean.calculate_standard_deviation(self.data, result)
         return result
-    
+
     def calculate_median(self):
         """Create a list of calculations and perform them.
 

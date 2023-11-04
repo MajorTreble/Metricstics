@@ -99,7 +99,7 @@ class View(Frame):
         self.controller.generate_random_data(5)
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", self.controller.data)
-    
+
     def calculate_median_clicked(self):
         """Command for calculating the median."""
         result = self.controller.calculate_median()

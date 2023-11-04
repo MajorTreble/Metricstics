@@ -1,3 +1,4 @@
+"""Utility file for helper operations for METRICSTICS"""
 def sort(data):
     """
     Sort the dataset to find the Median
@@ -7,7 +8,7 @@ def sort(data):
     """
     size = len(data)
     for i in range(size):
-        flag = False 
+        flag = False
         for j in range(0, size - i - 1):
             if data[j] > data[j + 1]:
                 data[j], data[j + 1] = data[j + 1], data[j]
@@ -15,3 +16,4 @@ def sort(data):
         if not flag:
             break
     return data
+    
