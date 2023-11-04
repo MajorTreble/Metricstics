@@ -5,7 +5,7 @@ from metricstics.src.model.calculation import Calculation
 class InputController:
     """Handle input actions from the user."""
 
-    data = list()
+    data = []
 
     def __init__(self):
         """
@@ -26,7 +26,7 @@ class InputController:
 
     def clear_data(self):
         """Clear the data set to empty."""
-        self.data = list()
+        self.data = []
 
     def calculate_arithmetic_mean(self):
         """Create a list of calculations and perform them.

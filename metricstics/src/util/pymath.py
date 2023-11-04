@@ -1,11 +1,13 @@
 """App is the starting point and contains the main loop"""
 import math
 
+# pylint: disable=redefined-builtin
 
-def sum(list):
+
+def sum(sequence):
     """Sum up numbers over an iterator"""
     total = 0
-    for x in iter(list):
+    for x in iter(sequence):
         total += x
     return total
 

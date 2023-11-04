@@ -1,5 +1,5 @@
 """Calculations performed on a data set."""
-import metricstics.src.util.pymath as pymath
+from metricstics.src.util import pymath
 
 
 class Calculation:
