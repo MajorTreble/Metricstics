@@ -7,7 +7,7 @@ from metricstics.src.model.calculation import Calculation
 class InputController:
     """Handle input actions from the user."""
 
-    data = set()
+    data = []
 
     def __init__(self):
         """
