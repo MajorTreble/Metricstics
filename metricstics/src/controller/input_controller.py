@@ -3,7 +3,6 @@ import random
 from metricstics.src.model.calculation import Calculation
 
 
-
 class InputController:
     """Handle input actions from the user."""
 
@@ -16,7 +15,6 @@ class InputController:
         Attributes:
             data (set): The working data set of numbers
         """
-
 
     def generate_random_data(self, size):
         """

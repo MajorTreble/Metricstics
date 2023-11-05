@@ -46,7 +46,7 @@ class View(Frame):
             self,
             text="Calculate Median",
             borderless=1,
-            command = self.calculate_median_clicked,
+            command=self.calculate_median_clicked,
         )
         # self.button_cm.place(x=450, y=50)
         self.button_cm.grid(row=1, column=3)
