@@ -30,13 +30,24 @@ class View(Frame):
         # self.button_gd.place(x=50, y=100)
         self.button_gd.grid(row=2, column=1)
 
-        self.button_vmi = Button(self, text="View Minimum", borderless=1)
-        # self.button_vmi.place(x=50, y=150)
-        self.button_vmi.grid(row=3, column=1)
+        self.button_cam = Button(
+            self,
+            text="View Maximum",
+            borderless=1,
+            command=self.view_maximum_clicked,
+        )
+        self.button_cam.grid(row=4, column=1)
 
-        self.button_vmx = Button(self, text="View Maximum", borderless=1)
-        # self.button_vmx.place(x=50, y=200)
-        self.button_vmx.grid(row=4, column=1)
+        # self.button_vmo = Button(self, text="View Mode", borderless=1)
+
+        self.button_cam = Button(
+            self,
+            text="View Mode",
+            borderless=1,
+            command=self.view_mode_clicked,
+        )
+        # self.button_vmo.place(x=50, y=250)
+        self.button_cam.grid(row=5, column=1)
 
         self.button_vmo = Button(self, text="View Mode", borderless=1)
         # self.button_vmo.place(x=50, y=250)
@@ -111,6 +122,18 @@ class View(Frame):
         result = self.controller.calculate_arithmetic_mean()
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", result["ArithmeticMean"])
+
+    def view_maximum_clicked(self):
+        """Command for view maximum button."""
+        result = self.controller.view_maximum()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["Maximum"])
+
+    def view_mode_clicked(self):
+        """Command for view mode button."""
+        result = self.controller.view_mode()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["Mode"])
 
     def calculate_mean_absolute_deviation_clicked(self):
         """Command for calculate mean absolute deviation button."""
