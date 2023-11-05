@@ -20,7 +20,9 @@ class View(Frame):
         # create widgets
 
         # Buttons
-        self.button_rd = Button(self, text="Read Data", borderless=1, command = self.read_data_clicked())
+        self.button_rd = Button(self,
+                                text="Read Data", borderless=1,
+                                command = self.read_data_clicked)
         # self.button_rd.place(x=50, y=50)
         self.button_rd.grid(row=1, column=1)
 
@@ -29,8 +31,9 @@ class View(Frame):
         )
         # self.button_gd.place(x=50, y=100)
         self.button_gd.grid(row=2, column=1)
-
-        self.button_vmi = Button(self, text="View Minimum", borderless=1, command = self.calculate_minimum_clicked())
+        self.button_vmi = Button(self, text="View Minimum",
+                                 borderless=1,
+                                 command = self.calculate_minimum_clicked)
         # self.button_vmi.place(x=50, y=150)
         self.button_vmi.grid(row=3, column=1)
 
@@ -87,7 +90,6 @@ class View(Frame):
 
     def set_controller(self, controller):
         """Set the controller"""
-        print("Logging")
         self.controller = controller
 
     def generate_data_clicked(self):
@@ -108,11 +110,11 @@ class View(Frame):
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", result["MeanAbsoluteDeviation"])
 
-    # def calculate_standard_deviation_clicked(self):
-    #     """Command for calculate standard deviation button."""
-    #     result = self.controller.calculate_standard_deviation()
-    #     self.output_text.delete("1.0", "end")
-    #     self.output_text.insert("1.0", result["StandardDeviation"])
+    def calculate_standard_deviation_clicked(self):
+        """Command for calculate standard deviation button."""
+        result = self.controller.calculate_standard_deviation()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["StandardDeviation"])
 
     def calculate_minimum_clicked(self):
         """Command for calculate standard deviation button."""

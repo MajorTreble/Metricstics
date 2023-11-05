@@ -1,5 +1,5 @@
 """The controllers in an MVC architecture."""
-from metricstics.src.model.DataReader import DataReader
+from metricstics.src.model.datareader import datareader
 from metricstics.src.model.calculation import Calculation
 
 
@@ -32,8 +32,8 @@ class InputController:
         """Perform read data operation.
                 """
 
-        datareader = DataReader()
-        data  = datareader.read_data()
+        drobj = datareader()
+        self.data  = drobj.read_data()
 
 
     def calculate_minimum(self):
