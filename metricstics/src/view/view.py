@@ -42,7 +42,12 @@ class View(Frame):
         # self.button_vmo.place(x=50, y=250)
         self.button_vmo.grid(row=5, column=1)
 
-        self.button_cm = Button(self, text="Calculate Median", borderless=1)
+        self.button_cm = Button(
+            self,
+            text="Calculate Median",
+            borderless=1,
+            command = self.calculate_median_clicked,
+        )
         # self.button_cm.place(x=450, y=50)
         self.button_cm.grid(row=1, column=3)
 
@@ -94,6 +99,12 @@ class View(Frame):
         self.controller.generate_random_data(5)
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", self.controller.data)
+
+    def calculate_median_clicked(self):
+        """Command for calculating the median."""
+        result = self.controller.calculate_median()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["Median"])
 
     def calculate_arithmetic_mean_clicked(self):
         """Command for calculate arithmatic mean button."""
