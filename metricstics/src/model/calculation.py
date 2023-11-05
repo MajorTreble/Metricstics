@@ -13,7 +13,6 @@ class Calculation:
                     data(list): the data to work with
                     result(dic): store the result
                 """
-        data = [5,41,28,9,1]
         minimum = data[0]
 
         size = len(data)
@@ -26,23 +25,6 @@ class Calculation:
                 minimum = data
 
         result["Minimum"] = minimum
-
-    def read_data(self,data,result):
-        """
-                        Perform read data operation.
-
-                        Arg:
-                            data(list): the data to work with
-                            result(dic): store the result
-                        """
-        size = len(data)
-        if size == 0:
-            result["readdata"] = 0
-            return
-
-        with open("myfile.txt", "r+", encoding="utf-8") as file1:
-            # Reading from a file
-            print(file1.read())
 
     def calculate_arithmetic_mean(self, data, result):
         """
