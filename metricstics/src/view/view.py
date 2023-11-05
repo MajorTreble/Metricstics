@@ -120,7 +120,7 @@ class View(Frame):
         self.output_text.insert("1.0", result["Minimum"])
 
 
-    def calculate_minimum(self):
+    def read_data(self):
         """Command for calculate standard deviation button."""
         result = self.controller.read_data()
         self.output_text.delete("1.0", "end")

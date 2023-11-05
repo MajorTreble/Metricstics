@@ -40,7 +40,7 @@ class Calculation:
             result["readdata"] = 0
             return
 
-        with open("myfile.txt", "r+") as file1:
+        with open("myfile.txt", "r+", encoding="utf-8") as file1:
             # Reading from a file
             print(file1.read())
 
