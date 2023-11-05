@@ -42,6 +42,28 @@ class InputController:
         mean.calculate_arithmetic_mean(self.data, result)
         return result
 
+        def view_maximum(self):
+        """Create a list of calculations and perform them.
+
+        Returns:
+            result(dict): The results of the calculations
+        """
+        result = {}
+        mean = Calculation()
+        mean.view_maximum(self.data, result)
+        return result
+
+    def view_mode(self):
+        """Create a list of calculations and perform them.
+
+        Returns:
+            result(dict): The results of the calculations
+        """
+        result = {}
+        mean = Calculation()
+        mean.view_mode(self.data, result)
+        return result
+
     def calculate_mean_absolute_deviation(self):
         """Create a list of calculations and perform them.
 
