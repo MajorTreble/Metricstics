@@ -125,6 +125,6 @@ class View(Frame):
 
     def read_data_clicked(self):
         """Command for calculate standard deviation button."""
-        result = self.controller.read_data()
+        self.controller.read_data()
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", "Reading Data is completed")

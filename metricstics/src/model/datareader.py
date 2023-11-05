@@ -1,5 +1,7 @@
 """Reading operations performed on a file."""
-class datareader:
+
+# pylint: disable=too-few-public-methods
+class DataReader:
     """Interface for Reading data."""
     def read_data(self):
         """Performing read data operation from a file

@@ -1,5 +1,5 @@
 """The controllers in an MVC architecture."""
-from metricstics.src.model.datareader import datareader
+from metricstics.src.model.datareader import DataReader
 from metricstics.src.model.calculation import Calculation
 
 
@@ -32,7 +32,7 @@ class InputController:
         """Perform read data operation.
                 """
 
-        drobj = datareader()
+        drobj = DataReader()
         self.data  = drobj.read_data()
 
 
