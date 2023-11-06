@@ -1,10 +1,14 @@
 """The controllers in an MVC architecture."""
-from metricstics.src.model.datareader import DataReader
+import random
 from metricstics.src.model.calculation import Calculation
+from metricstics.src.model.datareader import DataReader
+
 
 
 class InputController:
     """Handle input actions from the user."""
+
+    data = []
 
     def __init__(self):
         """
@@ -13,7 +17,7 @@ class InputController:
         Attributes:
             data (set): The working data set of numbers
         """
-        self.data = set()
+
 
     def generate_random_data(self, size):
         """
@@ -22,11 +26,11 @@ class InputController:
         Arg:
             size(int): the length of the data
         """
-        self.data = {1, 2, 3, 4, size}
+        self.data = [random.uniform(0, 1000) for _ in range(size)]
 
     def clear_data(self):
         """Clear the data set to empty."""
-        self.data = set()
+        self.data = []
 
     def read_data(self):
         """Perform read data operation.
@@ -78,6 +82,17 @@ class InputController:
         result = {}
         mean = Calculation()
         mean.calculate_standard_deviation(self.data, result)
+        return result
+
+    def calculate_median(self):
+        """Create a list of calculations and perform them.
+
+        Returns:
+            result(dict): The results of the calculations
+        """
+        result = {}
+        mean = Calculation()
+        mean.calculate_median(self.data, result)
         return result
 
     def __str__(self):

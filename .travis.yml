@@ -17,4 +17,5 @@ script:
   - pytest
   
 after_success:
+  - radon cc metricstics -a
   - bash <(curl -s https://codecov.io/bash)
