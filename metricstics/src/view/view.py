@@ -20,7 +20,9 @@ class View(Frame):
         # create widgets
 
         # Buttons
-        self.button_rd = Button(self, text="Read Data", borderless=1)
+        self.button_rd = Button(self,
+                                text="Read Data", borderless=1,
+                                command = self.read_data_clicked)
         # self.button_rd.place(x=50, y=50)
         self.button_rd.grid(row=1, column=1)
 
@@ -29,8 +31,9 @@ class View(Frame):
         )
         # self.button_gd.place(x=50, y=100)
         self.button_gd.grid(row=2, column=1)
-
-        self.button_vmi = Button(self, text="View Minimum", borderless=1)
+        self.button_vmi = Button(self, text="View Minimum",
+                                 borderless=1,
+                                 command = self.calculate_minimum_clicked)
         # self.button_vmi.place(x=50, y=150)
         self.button_vmi.grid(row=3, column=1)
 
@@ -123,3 +126,16 @@ class View(Frame):
         result = self.controller.calculate_standard_deviation()
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", result["StandardDeviation"])
+
+    def calculate_minimum_clicked(self):
+        """Command for calculate standard deviation button."""
+        result = self.controller.calculate_minimum()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["Minimum"])
+
+
+    def read_data_clicked(self):
+        """Command for calculate standard deviation button."""
+        self.controller.read_data()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", "Reading Data is completed")
