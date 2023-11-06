@@ -1,6 +1,7 @@
 """Calculations performed on a data set."""
 
 from metricstics.src.util import pymath
+from metricstics.src.utils.operation import sort
 
 
 class Calculation:
@@ -44,7 +45,7 @@ class Calculation:
 
         for i in data:
             if i < minimum:
-                minimum = data
+                minimum = i
 
         result["Minimum"] = minimum
 
