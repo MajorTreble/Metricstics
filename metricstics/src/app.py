@@ -18,8 +18,8 @@ class App(Tk):
         super().__init__()
 
         self.title("METRICSTICS")
-        self.geometry("720x500")
-        self.configure(background="lightblue")
+        # self.geometry("720x500")
+        # self.configure(background="lightblue")
 
         # create a view and place it on the root window
         self.view = View(self)

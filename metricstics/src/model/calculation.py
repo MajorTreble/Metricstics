@@ -27,6 +27,27 @@ class Calculation:
         else:
             result["Median"] = ordered_list[middle+1]
 
+    def calculate_minimum(self,data,result):
+        """
+                Perform minimum calculation.
+
+                Arg:
+                    data(list): the data to work with
+                    result(dic): store the result
+                """
+        minimum = data[0]
+
+        size = len(data)
+        if size == 0:
+            result["Minimum"] = 0
+            return
+
+        for i in data:
+            if i < minimum:
+                minimum = data
+
+        result["Minimum"] = minimum
+
     def calculate_arithmetic_mean(self, data, result):
         """
         Perform the Arithmetic Mean calculation.

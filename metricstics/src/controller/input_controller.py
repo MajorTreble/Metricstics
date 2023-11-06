@@ -1,6 +1,7 @@
 """The controllers in an MVC architecture."""
 import random
 from metricstics.src.model.calculation import Calculation
+from metricstics.src.model.datareader import DataReader
 
 
 
@@ -30,6 +31,25 @@ class InputController:
     def clear_data(self):
         """Clear the data set to empty."""
         self.data = []
+
+    def read_data(self):
+        """Perform read data operation.
+                """
+
+        drobj = DataReader()
+        self.data  = drobj.read_data()
+
+
+    def calculate_minimum(self):
+        """Create a list of calculations and perform them.
+
+                Returns:
+                    result(dict): The results of the calculations
+                """
+        result = {}
+        minimum = Calculation()
+        minimum.calculate_minimum(self.data,result)
+        return result
 
     def calculate_arithmetic_mean(self):
         """Create a list of calculations and perform them.
