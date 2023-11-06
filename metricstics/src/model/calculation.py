@@ -44,7 +44,7 @@ class Calculation:
 
         for i in data:
             if i < minimum:
-                minimum = data
+                minimum = i
 
         result["Minimum"] = minimum
 
