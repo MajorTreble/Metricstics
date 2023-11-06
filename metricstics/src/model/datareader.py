@@ -24,3 +24,4 @@ class DataReader:
         except FileNotFoundError:
             print("File path not found.")
         return data_lst
+    
