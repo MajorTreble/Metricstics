@@ -30,6 +30,14 @@ class View(Frame):
         # self.button_gd.place(x=50, y=100)
         self.button_gd.grid(row=2, column=1)
 
+        self.button_vmi = Button(self, text="View Minimum", borderless=1)
+        # self.button_vmi.place(x=50, y=150)
+        self.button_vmi.grid(row=3, column=1)
+
+        '''self.button_vmx = Button(self, text="View Maximum", borderless=1)
+        # self.button_vmx.place(x=50, y=200)
+        self.button_vmx.grid(row=4, column=1)'''
+
         self.button_cam = Button(
             self,
             text="View Maximum",
@@ -48,10 +56,6 @@ class View(Frame):
         )
         # self.button_vmo.place(x=50, y=250)
         self.button_cam.grid(row=5, column=1)
-
-        self.button_vmo = Button(self, text="View Mode", borderless=1)
-        # self.button_vmo.place(x=50, y=250)
-        self.button_vmo.grid(row=5, column=1)
 
         self.button_cm = Button(
             self,
