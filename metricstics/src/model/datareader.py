@@ -11,7 +11,8 @@ class DataReader:
         """
         data_lst = []
         try:
-            with open("/Users/hetdalal/Documents/GitHub/Metricstics/metricstics/src/model/random_data.txt", "r+", encoding="utf-8") as file1:
+            with open("/Users/hetdalal/Documents/GitHub/Metricstics/metricstics/src/model/random_data.txt",
+                      "r+", encoding="utf-8") as file1:
                 for line in file1:
                     data = ""
                     for char in line:
@@ -21,7 +22,6 @@ class DataReader:
                             data += char
         except FileNotFoundError:
             print("File path not found.")
-
         return data_lst
 
 
