@@ -1,6 +1,7 @@
 """Calculations performed on a data set."""
 
 from metricstics.src.util import pymath
+from metricstics.src.utils.operation import sort
 
 
 class Calculation:
