@@ -81,7 +81,8 @@ class View(Frame):
         )
         # self.button_cmad.place(x=450, y=200)
         self.button_cmad.grid(row=3, column=3)
-        ToolTip(self.button_cmad, msg="Calculate Mean Absolute Deviation from the generated data", delay=2.0)
+        ToolTip(self.button_cmad,
+                msg="Calculate Mean Absolute Deviation from the generated data", delay=2.0)
 
         self.button_csd = Button(
             self,
@@ -91,7 +92,8 @@ class View(Frame):
         )
         # self.button_csd.place(x=450, y=150)
         self.button_csd.grid(row=4, column=3)
-        ToolTip(self.button_csd, msg="Calculate Standard Deviation from the generated data", delay=2.0)
+        ToolTip(self.button_csd,
+                msg="Calculate Standard Deviation from the generated data", delay=2.0)
 
         self.button_sr = Button(self, text="Save Results", borderless=1)
         # self.button_sr.place(x=450, y=250)
@@ -152,4 +154,3 @@ class View(Frame):
         self.controller.read_data()
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", "Reading Data is completed")
-
