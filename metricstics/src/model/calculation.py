@@ -6,6 +6,7 @@ from metricstics.src.utils.operation import sort
 
 class Calculation:
     """Interface for Calculation."""
+
     def calculate_median(self, data, result):
         """
         Find the Median of the set
@@ -26,16 +27,16 @@ class Calculation:
             result["Median"] = (ordered_list[middle] + ordered_list[middle + 1]) / 2
 
         else:
-            result["Median"] = ordered_list[middle+1]
+            result["Median"] = ordered_list[middle + 1]
 
-    def calculate_minimum(self,data,result):
+    def calculate_minimum(self, data, result):
         """
-                Perform minimum calculation.
+        Perform minimum calculation.
 
-                Arg:
-                    data(list): the data to work with
-                    result(dic): store the result
-                """
+        Arg:
+            data(list): the data to work with
+            result(dic): store the result
+        """
         minimum = data[0]
 
         size = len(data)
@@ -104,6 +105,6 @@ class Calculation:
 
         total = 0
         for f in data:
-            total += abs(f - mean)
+            total += pymath.abs(f - mean)
 
         result["StandardDeviation"] = total / size
