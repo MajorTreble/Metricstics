@@ -6,6 +6,7 @@ import math
 
 def sum(sequence):
     """Sum up numbers over an iterator"""
+    print(sequence)
     total = 0
     for x in iter(sequence):
         total += x
