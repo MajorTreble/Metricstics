@@ -125,13 +125,13 @@ class View(Frame):
 
     def view_maximum_clicked(self):
         """Command for view maximum button."""
-        result = self.controller.view_maximum()
+        result = self.controller.calculate_maximum()
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", result["Maximum"])
 
     def view_mode_clicked(self):
         """Command for view mode button."""
-        result = self.controller.view_mode()
+        result = self.controller.calculate_mode()
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", result["Mode"])
 
