@@ -42,7 +42,7 @@ class InputController:
         mean.calculate_arithmetic_mean(self.data, result)
         return result
 
-        def view_maximum(self):
+    def calculate_maximum(self):
         """Create a list of calculations and perform them.
 
         Returns:
@@ -53,7 +53,7 @@ class InputController:
         mean.view_maximum(self.data, result)
         return result
 
-    def view_mode(self):
+    def calculate_mode(self):
         """Create a list of calculations and perform them.
 
         Returns:
