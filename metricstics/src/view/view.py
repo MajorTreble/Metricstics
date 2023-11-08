@@ -34,10 +34,6 @@ class View(Frame):
         # self.button_vmi.place(x=50, y=150)
         self.button_vmi.grid(row=3, column=1)
 
-        '''self.button_vmx = Button(self, text="View Maximum", borderless=1)
-        # self.button_vmx.place(x=50, y=200)
-        self.button_vmx.grid(row=4, column=1)'''
-
         self.button_cam = Button(
             self,
             text="View Maximum",
