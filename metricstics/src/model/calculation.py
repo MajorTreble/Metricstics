@@ -42,7 +42,7 @@ class Calculation:
 
         result["ArithmeticMean"] = pymath.sum(data) / size
 
-        def view_maximum(self, data, result):
+    def calculate_maximum(self, data, result):
         """
         Perform the Maximum.
 
@@ -62,7 +62,7 @@ class Calculation:
 
         result["Maximum"] = maximum
 
-    def view_mode(self, data, result):
+    def calculate_mode(self, data, result):
         """
         Perform the Mode.
 
