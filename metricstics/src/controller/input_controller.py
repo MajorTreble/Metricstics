@@ -50,7 +50,7 @@ class InputController:
         """
         result = {}
         mean = Calculation()
-        mean.view_maximum(self.data, result)
+        mean.calculate_maximum(self.data, result)
         return result
 
     def calculate_mode(self):
@@ -61,7 +61,7 @@ class InputController:
         """
         result = {}
         mean = Calculation()
-        mean.view_mode(self.data, result)
+        mean.calculate_mode(self.data, result)
         return result
 
     def calculate_mean_absolute_deviation(self):
