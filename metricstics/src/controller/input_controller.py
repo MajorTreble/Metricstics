@@ -4,7 +4,6 @@ from metricstics.src.model.calculation import Calculation
 from metricstics.src.model.datareader import DataReader
 
 
-
 class InputController:
     """Handle input actions from the user."""
 
@@ -17,7 +16,6 @@ class InputController:
         Attributes:
             data (set): The working data set of numbers
         """
-
 
     def generate_random_data(self, size):
         """
@@ -33,22 +31,20 @@ class InputController:
         self.data = []
 
     def read_data(self):
-        """Perform read data operation.
-                """
+        """Perform read data operation."""
 
         drobj = DataReader()
-        self.data  = drobj.read_data()
-
+        self.data = drobj.read_data()
 
     def calculate_minimum(self):
         """Create a list of calculations and perform them.
 
-                Returns:
-                    result(dict): The results of the calculations
-                """
+        Returns:
+            result(dict): The results of the calculations
+        """
         result = {}
         minimum = Calculation()
-        minimum.calculate_minimum(self.data,result)
+        minimum.calculate_minimum(self.data, result)
         return result
 
     def calculate_arithmetic_mean(self):

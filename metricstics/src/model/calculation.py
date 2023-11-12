@@ -1,7 +1,7 @@
 """Calculations performed on a data set."""
 
 from metricstics.src.util import pymath
-from metricstics.src.utils.operation import sort
+from metricstics.src.utils import operation
 
 
 class Calculation:
@@ -20,7 +20,7 @@ class Calculation:
             result["Median"] = 0
             return
 
-        ordered_list = sort(data)
+        ordered_list = operation.sort(data)
         middle = int(size / 2) - 1
 
         if size % 2 == 0:
