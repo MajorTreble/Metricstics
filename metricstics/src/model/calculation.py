@@ -51,14 +51,15 @@ class Calculation:
             result(dic): store the result
         """
         data = data
-        maximum = data[0]
-        for i in data:
-            if i > maximum:
-                maximum = i
         size = len(data)
         if size == 0:
             result["Maximum"] = 0
             return
+
+        maximum = data[0]
+        for i in data:
+            if i > maximum:
+                maximum = i
 
         result["Maximum"] = maximum
 
@@ -73,6 +74,10 @@ class Calculation:
         data = data
         max_count = 0
         mode = 0
+        size = len(data)
+        if size == 0:
+            result["Mode"] = 0
+            return
 
         for i in data:
             count = 0
@@ -84,13 +89,8 @@ class Calculation:
                 max_count = count
                 mode = current_number
 
-        size = len(data)
-        if size == 0:
-            result["Mode"] = 0
-            return
-
         if max_count == 1:
-            result["Mode"] = 0
+            result["Mode"] = "Undefined"
         else:
             result["Mode"] = mode
 
