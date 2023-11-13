@@ -47,7 +47,7 @@ class TestInputController:
         result = controller.calculate_mean_absolute_deviation()
 
         assert len(result) == 2
-        assert result["MeanAbsoluteDeviation"] == 1.4142135623730951
+        assert round(result["MeanAbsoluteDeviation"], 10) == 1.4142135624
 
     def test_calculate_standard_deviation(self, mocker):
         """Create random data and check it."""

@@ -1,9 +1,9 @@
-"""Utility file for helper operations for METRICSTICS"""
+"""Utility file for helper operations for METRICSTICS."""
 
 
 def sort(data):
     """
-    Sort the dataset to find the Median
+    Sort the list of values using bubblesort.
 
     Arg:
         data(list): the data to sort

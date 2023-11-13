@@ -5,6 +5,8 @@ from tkinter.ttk import Frame
 from tkmacosx import Button
 from tktooltip import ToolTip
 
+from metricstics.src.util.datareader import ReadResult
+
 # pylint: disable=R0901
 # Too many ancestors (8/7) (too-many-ancestors)
 # pylint: disable=R0902
@@ -47,14 +49,21 @@ class View(Frame):
             self.button_vmi, msg="Calculate Minimum from the generated data", delay=2.0
         )
 
-        self.button_vmx = Button(self, text="View Maximum", borderless=1)
+        self.button_vmx = Button(
+            self,
+            text="View Maximum",
+            borderless=1,
+            command=self.calculate_maximum_clicked,
+        )
         # self.button_vmx.place(x=50, y=200)
         self.button_vmx.grid(row=4, column=1)
         ToolTip(
             self.button_vmx, msg="Calculate Maximum from the generated data", delay=2.0
         )
 
-        self.button_vmo = Button(self, text="View Mode", borderless=1)
+        self.button_vmo = Button(
+            self, text="View Mode", borderless=1, command=self.calculate_mode_clicked
+        )
         # self.button_vmo.place(x=50, y=250)
         self.button_vmo.grid(row=5, column=1)
         ToolTip(
@@ -129,7 +138,7 @@ class View(Frame):
         self.controller = None
 
     def set_controller(self, controller):
-        """Set the controller"""
+        """Set the controller."""
         self.controller = controller
 
     def generate_data_clicked(self):
@@ -168,8 +177,31 @@ class View(Frame):
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", result["Minimum"])
 
+    def calculate_maximum_clicked(self):
+        """Command for calculate standard deviation button."""
+        result = self.controller.calculate_maximum()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["Maximum"])
+
+    def calculate_mode_clicked(self):
+        """Command for calculate mode."""
+        result = self.controller.calculate_mode()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["Mode"])
+
     def read_data_clicked(self):
         """Command for calculate standard deviation button."""
-        self.controller.read_data()
+        path = "./data/prepared_data.txt"
+        self.controller.read_data(path)
         self.output_text.delete("1.0", "end")
-        self.output_text.insert("1.0", "Reading Data is completed")
+        if self.controller.read_result == ReadResult.SUCCESS:
+            self.output_text.insert(
+                "1.0",
+                "Reading Data is completed: ",
+                len(self.controller.data),
+                " values read",
+            )
+        elif self.controller.read_result == ReadResult.NO_FILE:
+            self.output_text.insert("1.0", "Unable to read from file")
+        elif self.controller.read_result == ReadResult.NO_DATA:
+            self.output_text.insert("1.0", "File contained no data")
