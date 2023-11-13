@@ -9,10 +9,10 @@ class TestPymath:
     """Test Pymath."""
 
     def test_sum(self):
-        """Generate list and sum it."""
-        list = {100, 200, 300, 400, 999}
+        """Generate list or values and sum it."""
+        values = {100, 200, 300, 400, 999}
 
-        assert pymath.sum(list) == builtins.sum(list)
+        assert pymath.sum(values) == builtins.sum(values)
 
     def test_sqrt(self):
         """Test against several numbers."""
