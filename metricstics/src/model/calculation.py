@@ -1,10 +1,12 @@
 """Calculations performed on a data set."""
 
 from metricstics.src.util import pymath
+from metricstics.src.utils import operation
 
 
 class Calculation:
     """Interface for Calculation."""
+
     def calculate_median(self, data, result):
         """
         Find the Median of the set
@@ -18,14 +20,35 @@ class Calculation:
             result["Median"] = 0
             return
 
-        ordered_list = sort(data)
+        ordered_list = operation.sort(data)
         middle = int(size / 2) - 1
 
         if size % 2 == 0:
             result["Median"] = (ordered_list[middle] + ordered_list[middle + 1]) / 2
 
         else:
-            result["Median"] = ordered_list[middle+1]
+            result["Median"] = ordered_list[middle + 1]
+
+    def calculate_minimum(self, data, result):
+        """
+        Perform minimum calculation.
+
+        Arg:
+            data(list): the data to work with
+            result(dic): store the result
+        """
+        minimum = data[0]
+
+        size = len(data)
+        if size == 0:
+            result["Minimum"] = 0
+            return
+
+        for i in data:
+            if i < minimum:
+                minimum = i
+
+        result["Minimum"] = minimum
 
     def calculate_arithmetic_mean(self, data, result):
         """
@@ -134,6 +157,6 @@ class Calculation:
 
         total = 0
         for f in data:
-            total += abs(f - mean)
+            total += pymath.abs(f - mean)
 
         result["StandardDeviation"] = total / size
