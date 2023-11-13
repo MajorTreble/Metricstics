@@ -34,7 +34,6 @@ def sqrt(x):
     while count < 10:
         result = (x / result + result) / 2
         if result * result == x:
-            print("Found ", count)
             break
         count += 1
 

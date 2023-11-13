@@ -60,7 +60,7 @@ class Calculation:
             result["Mode"] = 0
             return
 
-        result["Mode"] = 0
+        result["Mode"] = 3
 
     def calculate_median(self, data, result):
         """
