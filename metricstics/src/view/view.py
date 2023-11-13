@@ -47,18 +47,31 @@ class View(Frame):
             self.button_vmi, msg="Calculate Minimum from the generated data", delay=2.0
         )
 
-        self.button_vmx = Button(self, text="View Maximum", borderless=1)
-        # self.button_vmx.place(x=50, y=200)
-        self.button_vmx.grid(row=4, column=1)
+        self.button_cam.grid(row=4, column=1)
+        self.button_cam = Button(
+            self,
+            text="View Maximum",
+            borderless=1,
+            command=self.view_maximum_clicked,
+        )
+        self.button_cam.grid(row=4, column=1)
         ToolTip(
-            self.button_vmx, msg="Calculate Maximum from the generated data", delay=2.0
+            self.button_cam, msg="Calculate Maximum from the generated data", delay=2.0
         )
 
-        self.button_vmo = Button(self, text="View Mode", borderless=1)
+        # self.button_vmo = Button(self, text="View Mode", borderless=1)
+
+        self.button_cam = Button(
+            self,
+            text="View Mode",
+            borderless=1,
+            command=self.view_mode_clicked,
+        )
         # self.button_vmo.place(x=50, y=250)
-        self.button_vmo.grid(row=5, column=1)
+
+        self.button_cam.grid(row=5, column=1)
         ToolTip(
-            self.button_vmo, msg="Calculate Mode from the generated data", delay=2.0
+            self.button_cam, msg="Calculate Mode from the generated data", delay=2.0
         )
 
         self.button_cm = Button(
@@ -149,6 +162,18 @@ class View(Frame):
         result = self.controller.calculate_arithmetic_mean()
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", result["ArithmeticMean"])
+
+    def view_maximum_clicked(self):
+        """Command for view maximum button."""
+        result = self.controller.calculate_maximum()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["Maximum"])
+
+    def view_mode_clicked(self):
+        """Command for view mode button."""
+        result = self.controller.calculate_mode()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", result["Mode"])
 
     def calculate_mean_absolute_deviation_clicked(self):
         """Command for calculate mean absolute deviation button."""
