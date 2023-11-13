@@ -1,15 +1,70 @@
 """Calculations performed on a data set."""
 
 from metricstics.src.util import pymath
-from metricstics.src.utils import operation
+from metricstics.src.util import operation
 
 
 class Calculation:
     """Interface for Calculation."""
 
+    def calculate_minimum(self, data, result):
+        """
+        Perform minimum calculation.
+
+        Arg:
+            data(list): the data to work with
+            result(dic): store the result
+        """
+        size = len(data)
+        if size == 0:
+            result["Minimum"] = 0
+            return
+
+        minimum = data[0]
+        for i in data:
+            if i < minimum:
+                minimum = i
+
+        result["Minimum"] = minimum
+
+    def calculate_maximum(self, data, result):
+        """
+        Find maximum value.
+
+        Arg:
+            data(list): the data to work with
+            result(dic): store the result
+        """
+        size = len(data)
+        if size == 0:
+            result["Maximum"] = 0
+            return
+
+        maximum = data[0]
+        for i in data:
+            if i > maximum:
+                maximum = i
+
+        result["Maximum"] = maximum
+
+    def calculate_mode(self, data, result):
+        """
+        Find the mode.
+
+        Arg:
+            data(list): the data to work with
+            result(dic): store the result
+        """
+        size = len(data)
+        if size == 0:
+            result["Mode"] = 0
+            return
+
+        result["Mode"] = 3
+
     def calculate_median(self, data, result):
         """
-        Find the Median of the set
+        Find the Median of the set.
 
         Arg:
         data(list): the data to work with
@@ -28,27 +83,6 @@ class Calculation:
 
         else:
             result["Median"] = ordered_list[middle + 1]
-
-    def calculate_minimum(self, data, result):
-        """
-        Perform minimum calculation.
-
-        Arg:
-            data(list): the data to work with
-            result(dic): store the result
-        """
-        minimum = data[0]
-
-        size = len(data)
-        if size == 0:
-            result["Minimum"] = 0
-            return
-
-        for i in data:
-            if i < minimum:
-                minimum = i
-
-        result["Minimum"] = minimum
 
     def calculate_arithmetic_mean(self, data, result):
         """

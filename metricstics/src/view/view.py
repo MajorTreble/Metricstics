@@ -5,6 +5,8 @@ from tkinter.ttk import Frame
 from tkmacosx import Button
 from tktooltip import ToolTip
 
+from metricstics.src.util.datareader import ReadResult
+
 # pylint: disable=R0901
 # Too many ancestors (8/7) (too-many-ancestors)
 # pylint: disable=R0902
@@ -142,7 +144,7 @@ class View(Frame):
         self.controller = None
 
     def set_controller(self, controller):
-        """Set the controller"""
+        """Set the controller."""
         self.controller = controller
 
     def generate_data_clicked(self):
@@ -151,17 +153,35 @@ class View(Frame):
         self.output_text.delete("1.0", "end")
         self.output_text.insert("1.0", self.controller.data)
 
+    def calculate_minimum_clicked(self):
+        """Command for calculate standard deviation button."""
+        self.controller.calculate_minimum()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", self.controller.result["Minimum"])
+
+    def calculate_maximum_clicked(self):
+        """Command for calculate standard deviation button."""
+        self.controller.calculate_maximum()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", self.controller.result["Maximum"])
+
+    def calculate_mode_clicked(self):
+        """Command for calculate mode."""
+        self.controller.calculate_mode()
+        self.output_text.delete("1.0", "end")
+        self.output_text.insert("1.0", self.controller.result["Mode"])
+
     def calculate_median_clicked(self):
         """Command for calculating the median."""
-        result = self.controller.calculate_median()
+        self.controller.calculate_median()
         self.output_text.delete("1.0", "end")
-        self.output_text.insert("1.0", result["Median"])
+        self.output_text.insert("1.0", self.controller.result["Median"])
 
     def calculate_arithmetic_mean_clicked(self):
         """Command for calculate arithmatic mean button."""
-        result = self.controller.calculate_arithmetic_mean()
+        self.controller.calculate_arithmetic_mean()
         self.output_text.delete("1.0", "end")
-        self.output_text.insert("1.0", result["ArithmeticMean"])
+        self.output_text.insert("1.0", self.controller.result["ArithmeticMean"])
 
     def view_maximum_clicked(self):
         """Command for view maximum button."""
@@ -177,24 +197,29 @@ class View(Frame):
 
     def calculate_mean_absolute_deviation_clicked(self):
         """Command for calculate mean absolute deviation button."""
-        result = self.controller.calculate_mean_absolute_deviation()
+        self.controller.calculate_mean_absolute_deviation()
         self.output_text.delete("1.0", "end")
-        self.output_text.insert("1.0", result["MeanAbsoluteDeviation"])
+        self.output_text.insert("1.0", self.controller.result["MeanAbsoluteDeviation"])
 
     def calculate_standard_deviation_clicked(self):
         """Command for calculate standard deviation button."""
-        result = self.controller.calculate_standard_deviation()
+        self.controller.calculate_standard_deviation()
         self.output_text.delete("1.0", "end")
-        self.output_text.insert("1.0", result["StandardDeviation"])
-
-    def calculate_minimum_clicked(self):
-        """Command for calculate standard deviation button."""
-        result = self.controller.calculate_minimum()
-        self.output_text.delete("1.0", "end")
-        self.output_text.insert("1.0", result["Minimum"])
+        self.output_text.insert("1.0", self.controller.result["StandardDeviation"])
 
     def read_data_clicked(self):
         """Command for calculate standard deviation button."""
-        self.controller.read_data()
+        path = "./data/prepared_data.txt"
+        self.controller.read_data(path)
         self.output_text.delete("1.0", "end")
-        self.output_text.insert("1.0", "Reading Data is completed")
+        if self.controller.read_result == ReadResult.SUCCESS:
+            self.output_text.insert(
+                "1.0",
+                "Reading Data is completed: "
+                + str(len(self.controller.get_data()))
+                + " values read",
+            )
+        elif self.controller.read_result == ReadResult.NO_FILE:
+            self.output_text.insert("1.0", "Unable to read from file")
+        elif self.controller.read_result == ReadResult.NO_DATA:
+            self.output_text.insert("1.0", "File contained no data")

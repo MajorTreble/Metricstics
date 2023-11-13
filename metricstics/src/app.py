@@ -1,4 +1,4 @@
-"""App is the starting point and contains the main loop"""
+"""App is the starting point and contains the main loop."""
 from tkinter import Tk
 import os
 import sys
@@ -11,10 +11,10 @@ from metricstics.src.view.view import View
 
 
 class App(Tk):
-    """Launch the application and create the MVC"""
+    """Launch the application and create the MVC."""
 
     def __init__(self):
-        """Launch the application and create the MVC"""
+        """Launch the application and create the MVC."""
         super().__init__()
 
         self.title("METRICSTICS")
