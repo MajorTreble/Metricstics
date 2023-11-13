@@ -197,11 +197,10 @@ class View(Frame):
         if self.controller.read_result == ReadResult.SUCCESS:
             self.output_text.insert(
                 "1.0",
-                "Reading Data is completed: " 
-                + str(len(self.controller.get_data())) 
+                "Reading Data is completed: "
+                + str(len(self.controller.get_data()))
                 + " values read",
             )
-            print (len(self.controller.get_data()))
         elif self.controller.read_result == ReadResult.NO_FILE:
             self.output_text.insert("1.0", "Unable to read from file")
         elif self.controller.read_result == ReadResult.NO_DATA:
