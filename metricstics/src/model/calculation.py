@@ -99,6 +99,58 @@ class Calculation:
 
         result["ArithmeticMean"] = pymath.sum(data) / size
 
+    def calculate_maximum(self, data, result):
+        """
+        Perform the Maximum.
+
+        Arg:
+            data(set): the data to work with
+            result(dic): store the result
+        """
+        data = data
+        size = len(data)
+        if size == 0:
+            result["Maximum"] = 0
+            return
+
+        maximum = data[0]
+        for i in data:
+            if i > maximum:
+                maximum = i
+
+        result["Maximum"] = maximum
+
+    def calculate_mode(self, data, result):
+        """
+        Perform the Mode.
+
+        Arg:
+            data(set): the data to work with
+            result(dic): store the result
+        """
+        data = data
+        max_count = 0
+        mode = 0
+        size = len(data)
+        if size == 0:
+            result["Mode"] = 0
+            return
+
+        for i in data:
+            count = 0
+            current_number = i
+            for j in range(0, len(data)):
+                if current_number == data[j]:
+                    count = count + 1
+            if count > max_count:
+                max_count = count
+                mode = current_number
+
+        if max_count == 1:
+            result["Mode"] = "Undefined"
+        else:
+            result["Mode"] = mode
+
     def calculate_mean_absolute_deviation(self, data, result):
         """
         Perform the Mean Absolute Deviation calculation.
