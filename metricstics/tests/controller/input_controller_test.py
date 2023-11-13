@@ -116,6 +116,8 @@ class TestInputController:
         controller.calculate_standard_deviation()
 
         result = controller.get_result()
+        #pylint: disable=R0801
+        #Similar lines in 2 files
         assert len(result) == 7
         assert result["Minimum"] == 1
         assert result["Maximum"] == 5
