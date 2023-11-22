@@ -132,9 +132,9 @@ class Calculation:
 
         total = 0
         for f in data:
-            total += (f - mean) ** 2
+            total += pymath.abs(f - mean)
 
-        result["MeanAbsoluteDeviation"] = pymath.sqrt(total / size)
+        result["MeanAbsoluteDeviation"] = total / size
 
     def calculate_standard_deviation(self, data, result):
         """
@@ -154,6 +154,6 @@ class Calculation:
 
         total = 0
         for f in data:
-            total += pymath.abs(f - mean)
+            total += (f - mean) ** 2
 
-        result["StandardDeviation"] = total / size
+        result["StandardDeviation"] = pymath.sqrt(total / size)
