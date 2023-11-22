@@ -48,5 +48,5 @@ class TestCalculation:
         assert result["Mode"] == 3
         assert result["Median"] == 3
         assert result["ArithmeticMean"] == 3
-        assert round(result["MeanAbsoluteDeviation"], 10) == 1.2909944487
-        assert result["StandardDeviation"] == 1.0
+        assert result["MeanAbsoluteDeviation"] == 1.0
+        assert round(result["StandardDeviation"], 10) == 1.2909944487

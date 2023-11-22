@@ -91,7 +91,7 @@ class TestInputController:
 
         result = controller.get_result()
         assert len(result) == 2
-        assert round(result["MeanAbsoluteDeviation"], 10) == 1.2909944487
+        assert result["MeanAbsoluteDeviation"] == 1.0
 
     def test_calculate_standard_deviation(self, mocker):
         """Create random data and check it."""
@@ -101,7 +101,7 @@ class TestInputController:
 
         result = controller.get_result()
         assert len(result) == 2
-        assert result["StandardDeviation"] == 1.0
+        assert round(result["StandardDeviation"], 10) == 1.2909944487
 
     def test_calculate_all(self, mocker):
         """Create random data and check it."""
@@ -116,16 +116,16 @@ class TestInputController:
         controller.calculate_standard_deviation()
 
         result = controller.get_result()
-        #pylint: disable=R0801
-        #Similar lines in 2 files
+        # pylint: disable=R0801
+        # Similar lines in 2 files
         assert len(result) == 7
         assert result["Minimum"] == 1
         assert result["Maximum"] == 5
         assert result["Mode"] == 3
         assert result["Median"] == 3
         assert result["ArithmeticMean"] == 3
-        assert round(result["MeanAbsoluteDeviation"], 10) == 1.2909944487
-        assert result["StandardDeviation"] == 1.0
+        assert result["MeanAbsoluteDeviation"] == 1.0
+        assert round(result["StandardDeviation"], 10) == 1.2909944487
 
     def test___str__(self, mocker):
         """Create random data and check it."""

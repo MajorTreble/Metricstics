@@ -130,7 +130,12 @@ class View(Frame):
             delay=2.0,
         )
 
-        self.button_sr = Button(self, text="Save Results", borderless=1,command=self.calculate_saved_clicked)
+        self.button_sr = Button(
+            self,
+            text="Save Results",
+            borderless=1,
+            command=self.calculate_saved_clicked,
+        )
         # self.button_sr.place(x=450, y=250)
         self.button_sr.grid(row=5, column=3)
         ToolTip(self.button_csd, msg="Save Results", delay=2.0)
@@ -211,34 +216,63 @@ class View(Frame):
             self.output_text.insert("1.0", "Unable to read from file")
         elif self.controller.read_result == ReadResult.NO_DATA:
             self.output_text.insert("1.0", "File contained no data")
+
     def calculate_saved_clicked(self):
+        """Command"""
         self.controller.calculate_all()
         self.output_text.delete("1.0", "end")  # Clear existing content
-        self.output_text.insert("1.0", "Standard Deviation: " + str(self.controller.result["StandardDeviation"]) + "\n")
-        self.output_text.insert("2.0", "Mean Absolute Deviation: " + str(self.controller.result["MeanAbsoluteDeviation"]) + "\n")
-        self.output_text.insert("3.0", "Median: " + str(self.controller.result["Median"]) + "\n")
-        self.output_text.insert("4.0", "Mode: " + str(self.controller.result["Mode"]) + "\n")
-        self.output_text.insert("5.0", "Maximum: " + str(self.controller.result["Maximum"]) + "\n")
-        self.output_text.insert("6.0", "Minimum: " + str(self.controller.result["Minimum"]) + "\n")
-        self.output_text.insert("7.0", "Arithmetic Mean: " + str(self.controller.result["ArithmeticMean"]) + "\n")
-        file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text files", "*.txt")])
+        self.output_text.insert(
+            "1.0",
+            "Standard Deviation: "
+            + str(self.controller.result["StandardDeviation"])
+            + "\n",
+        )
+        self.output_text.insert(
+            "2.0",
+            "Mean Absolute Deviation: "
+            + str(self.controller.result["MeanAbsoluteDeviation"])
+            + "\n",
+        )
+        self.output_text.insert(
+            "3.0", "Median: " + str(self.controller.result["Median"]) + "\n"
+        )
+        self.output_text.insert(
+            "4.0", "Mode: " + str(self.controller.result["Mode"]) + "\n"
+        )
+        self.output_text.insert(
+            "5.0", "Maximum: " + str(self.controller.result["Maximum"]) + "\n"
+        )
+        self.output_text.insert(
+            "6.0", "Minimum: " + str(self.controller.result["Minimum"]) + "\n"
+        )
+        self.output_text.insert(
+            "7.0",
+            "Arithmetic Mean: " + str(self.controller.result["ArithmeticMean"]) + "\n",
+        )
+        file_path = filedialog.asksaveasfilename(
+            defaultextension=".txt", filetypes=[("Text files", "*.txt")]
+        )
         if file_path:
             # Open file in write mode
-            with open(file_path, "w") as file:
-                file.write("Standard Deviation: " + str(self.controller.result["StandardDeviation"]) + "\n")
-                file.write("Mean Absolute Deviation: " + str(self.controller.result["MeanAbsoluteDeviation"]) + "\n")
+            with open(file_path, "w", encoding="utf-8") as file:
+                file.write(
+                    "Standard Deviation: "
+                    + str(self.controller.result["StandardDeviation"])
+                    + "\n"
+                )
+                file.write(
+                    "Mean Absolute Deviation: "
+                    + str(self.controller.result["MeanAbsoluteDeviation"])
+                    + "\n"
+                )
                 file.write("Median: " + str(self.controller.result["Median"]) + "\n")
                 file.write("Mode: " + str(self.controller.result["Mode"]) + "\n")
                 file.write("Maximum: " + str(self.controller.result["Maximum"]) + "\n")
                 file.write("Minimum: " + str(self.controller.result["Minimum"]) + "\n")
-                file.write("Arithmetic Mean: " + str(self.controller.result["ArithmeticMean"]) + "\n")
+                file.write(
+                    "Arithmetic Mean: "
+                    + str(self.controller.result["ArithmeticMean"])
+                    + "\n"
+                )
 
         self.output_text.insert("9.0", f"Results saved to: {file_path}")
-    
-
-        
-
-
-
-
-
