@@ -15,7 +15,7 @@ This is a student project for Soen 6611 Software Metrics at Concordia University
 insert commands or content here
 ```
 
-## Usage
+## How to run the app
 
 ```bash
 insert commands or content here
