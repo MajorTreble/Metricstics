@@ -11,12 +11,15 @@ This is a student project for Soen 6611 Software Metrics at Concordia University
 
 ## Installation
 
-```bash
-insert commands or content here
-```
+Metricstics can be installed by cloning the repository from [https://github.com/MajorTreble/Metricstics].
+It requires Python 3.8+ to run.
 
-## Usage
+Install the requirements using
+pip install -r requirements.txt
 
-```bash
-insert commands or content here
-```
+From the root folder, run the app using
+python metricstics/src/app.py
+
+## Documentation
+
+Please find the link of Documentation along with the latex File here:  [https://github.com/MajorTreble/Metricstics/tree/main/documentation]
